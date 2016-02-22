@@ -1,0 +1,18 @@
+
+package require tcltest
+
+namespace import tcltest::*
+
+source swan/library.tcl
+
+swan::pause defaultpause
+
+test default_pause_ms {} {
+	defaultpause getMiliseconds
+} 250
+
+swan::pause setDuration 2000
+
+test default_pause_ms2 {} {
+	defaultpause getMiliseconds
+} 500

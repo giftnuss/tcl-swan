@@ -1,0 +1,11 @@
+
+# need an example for all.tcl file - recursive test setups are possible
+
+package require tcltest
+
+namespace import tcltest::*
+
+::swan::instrument::generator default
+
+test default_amplitude {} {default cget -amplitude} 10000
+test default_type {} {default cget -type} sine

@@ -1,0 +1,18 @@
+
+package require tcltest
+
+namespace import tcltest::*
+
+source swan/library.tcl
+
+swan::duration defaultduration
+
+test default_duration_ms {} {
+	defaultduration getMiliseconds
+} 250
+
+swan::duration setDuration 2000
+
+test default_duration_ms2 {} {
+	defaultduration getMiliseconds
+} 500

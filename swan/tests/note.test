@@ -1,0 +1,37 @@
+
+package require tcltest
+
+namespace import tcltest::*
+
+source swan/library.tcl
+
+swan::note defaultnote
+	
+test default_note_frequency {} {
+	defaultnote getFrequency
+} 440.0
+
+test default_note_ms {} {
+	defaultnote getMiliseconds
+} 250
+
+test default_note_has_no_next {} {
+	defaultnote hasNext
+} 0
+
+swan::note setDuration 2000
+
+test default_note_ms2 {} {
+	defaultnote getMiliseconds
+} 500
+
+# --------------
+
+swan::note a
+swan::note b
+
+a setNext b
+
+test has_next {} {
+	a hasNext
+} 1

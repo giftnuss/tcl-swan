@@ -1,0 +1,36 @@
+
+package require tcltest
+
+namespace import tcltest::*
+
+test load_ok {load the swan library} {
+	source swan/library.tcl
+} ""
+
+test library_present {library version} {
+        package present -exact ::swan::library 0.2
+} "0.2"
+
+test duration_present {is duration library loaded} {
+	package present -exact ::swan::duration 0.1
+} "0.1"
+
+test log_present {is log library loaded} {
+	package present -exact ::swan::log 0.1
+} "0.1"
+
+test note_present {is note library loaded} {
+	package present -exact ::swan::note 0.2
+} "0.2"
+
+test pause_present {is pause library loaded} {
+	package present -exact ::swan::pause 0.1
+} "0.1"
+
+test melody_present {is melody library loaded} {
+	package present -exact ::swan::melody 0.2
+} "0.2"
+
+test instrument_generator_present {is a simple generator instrument loaded} {
+	package present -exact ::swan::instrument::generator 0.1
+} "0.1"
