@@ -7,6 +7,8 @@ snit::type ::swan::duration {
 	variable value
 	# the duration in miliseconds
 	typevariable duration 1000
+	# alternative duration not shared with every note
+	variable tempo
 	
 	constructor {{val 0.25}} {
 		set value $val
@@ -16,9 +18,17 @@ snit::type ::swan::duration {
 		set duration $ms
 	}
 	
+	method setTempo {t} {
+	       set tempo t
+        }
+	
 	method getMiliseconds {} {
-		return [expr int($duration * $value)]
+	        if {[info exists tempo]} {
+		
+	        } else {
+		        return [expr int($duration * $value)]
+		}
         }
 }
 
-package provide ::swan::duration 0.1
+package provide ::swan::duration 0.2
